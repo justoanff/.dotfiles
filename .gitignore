@@ -1,0 +1,5 @@
+github-copilot/
+jgit/
+qBittorrent/
+zed/
+!zed/settings.json
