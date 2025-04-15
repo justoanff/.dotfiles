@@ -6,7 +6,7 @@
 # source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # Load p10k config if exists
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Starship prompt
 eval "$(starship init zsh)"
@@ -17,9 +17,6 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Syntax highlighting
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Autocomplete plugin (disabled)
-# source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # Smart directory navigation
 eval "$(zoxide init zsh)"
@@ -60,12 +57,6 @@ bindkey '^[c' fzf-cd-widget
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
-# Node version manager
-eval "$(fnm env --use-on-cd --shell zsh)"
-
-# pipx path
-export PATH="$PATH:/Users/justoanff/.local/bin"
 
 # docker buildkit
 export docker_buildkit=1
