@@ -59,16 +59,11 @@ echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells
 chsh -s $(brew --prefix)/bin/zsh
 ```
 
-### 5. Configure mise for runtime management
+### 5. Build bat cache for custom theme
 
 ```bash
-# Create mise config if needed
-mkdir -p ~/.config/mise
-
-# Set up Python, Node.js, and Java
-mise use --global python@latest
-mise use --global node@lts
-mise use --global java@temurin-17
+# Build the bat cache to apply the custom Tokyo Night theme
+bat cache --build
 ```
 
 ## Features

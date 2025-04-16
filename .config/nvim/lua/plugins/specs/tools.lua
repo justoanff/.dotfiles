@@ -38,39 +38,39 @@ return {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
-  
+
   -- Avante - AI Assistant
-  {
-    "yetone/avante.nvim",
-    event = "VeryLazy",
-    version = false, -- Never set this value to "*"! Never!
-    config = function()
-      require("plugins.configs.avante")
-    end,
-    build = "make",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "stevearc/dressing.nvim",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "echasnovski/mini.pick", -- for file_selector provider mini.pick
-      "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-      "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-      "ibhagwan/fzf-lua", -- for file_selector provider fzf
-      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua", -- for providers='copilot'
-      {
-        -- support for image pasting
-        "HakonHarnes/img-clip.nvim",
-        event = "VeryLazy",
-      },
-      {
-        -- Support for markdown rendering
-        'MeanderingProgrammer/render-markdown.nvim',
-        ft = { "markdown", "Avante" },
-      },
-    },
-  },
+  -- {
+  --   "yetone/avante.nvim",
+  --   event = "VeryLazy",
+  --   version = false, -- Never set this value to "*"! Never!
+  --   config = function()
+  --     require("plugins.configs.avante")
+  --   end,
+  --   build = "make",
+  --   dependencies = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "stevearc/dressing.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --     "MunifTanjim/nui.nvim",
+  --     "echasnovski/mini.pick", -- for file_selector provider mini.pick
+  --     "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+  --     "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+  --     "ibhagwan/fzf-lua", -- for file_selector provider fzf
+  --     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+  --     "zbirenbaum/copilot.lua", -- for providers='copilot'
+  --     {
+  --       -- support for image pasting
+  --       "HakonHarnes/img-clip.nvim",
+  --       event = "VeryLazy",
+  --     },
+  --     {
+  --       -- Support for markdown rendering
+  --       'MeanderingProgrammer/render-markdown.nvim',
+  --       ft = { "markdown", "Avante" },
+  --     },
+  --   },
+  -- },
 
   -- Python Virtual Environment Selector
   {
@@ -92,6 +92,5 @@ return {
       require("plugins.configs.nvim-surround")
     end,
   }
-  
-}
 
+}
