@@ -21,6 +21,9 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # Smart directory navigation
 eval "$(zoxide init zsh)"
 
+# mise
+eval "$(mise activate zsh)"
+
 # FZF CONFIGURATION
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -53,11 +56,6 @@ bindkey '^R' fzf-history-widget
 bindkey '^[c' fzf-cd-widget
 
 # DEV ENVIRONMENT
-# pyenv setup
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
 # docker buildkit
 export docker_buildkit=1
 
