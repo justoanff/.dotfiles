@@ -62,8 +62,6 @@ export docker_buildkit=1
 # bake enable
 export COMPOSE_BAKE=true
 
-# 1pw
-export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 # ALIASES & FUNCTIONS
 # Modern directory commands
 alias cd=z

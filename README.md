@@ -31,7 +31,7 @@ brew bundle
 Use stow to create symbolic links for all configurations:
 
 ```bash
-stow . -t ~
+stow .
 ```
 
 Alternatively, you can create symbolic links manually for specific configurations:
