@@ -20,29 +20,29 @@ This configuration follows a modular structure organized as follows:
 
 ```md
 .config/nvim/
-├── init.lua                 # Main entry point
+├── init.lua # Main entry point
 ├── lua/
-│   ├── core/                # Core Neovim settings
-│   │   ├── autocmds.lua     # Automatic commands
-│   │   ├── keymaps.lua      # Basic key mappings
-│   │   └── options.lua      # Neovim options and settings
-│   │
-│   └── plugins/             # Plugin management
-│       ├── init.lua         # Plugin loader using lazy.nvim
-│       ├── configs/         # Individual plugin configurations
-│       │   ├── avante.lua         # AI assistant configuration
-│       │   ├── bufferline.lua     # Buffer line configuration
-│       │   ├── colorscheme.lua    # Theme configuration
-│       │   ├── conform.lua        # Formatter configuration
-│       │   ├── lsp.lua            # LSP configuration
-│       │   ├── venv-selector.lua  # Python virtual env manager
-│       │   └── ...                # Other plugin configurations
-│       │
-│       └── specs/           # Plugin specifications by category
-│           ├── ui.lua       # User interface plugins
-│           ├── editor.lua   # Editor enhancement plugins
-│           ├── coding.lua   # Programming/LSP plugins
-│           └── tools.lua    # Utility plugins
+│ ├── core/ # Core Neovim settings
+│ │ ├── autocmds.lua # Automatic commands
+│ │ ├── keymaps.lua # Basic key mappings
+│ │ └── options.lua # Neovim options and settings
+│ │
+│ └── plugins/ # Plugin management
+│ ├── init.lua # Plugin loader using lazy.nvim
+│ ├── configs/ # Individual plugin configurations
+│ │ ├── avante.lua # AI assistant configuration
+│ │ ├── bufferline.lua # Buffer line configuration
+│ │ ├── colorscheme.lua # Theme configuration
+│ │ ├── conform.lua # Formatter configuration
+│ │ ├── lsp.lua # LSP configuration
+│ │ ├── venv-selector.lua # Python virtual env manager
+│ │ └── ... # Other plugin configurations
+│ │
+│ └── specs/ # Plugin specifications by category
+│ ├── ui.lua # User interface plugins
+│ ├── editor.lua # Editor enhancement plugins
+│ ├── coding.lua # Programming/LSP plugins
+│ └── tools.lua # Utility plugins
 ```
 
 ## Core Configuration
@@ -93,6 +93,7 @@ This configuration includes several powerful plugins:
 - **Avante**: AI assistant for development
 - **Gitsigns**: Git integration in the editor
 - **Tmux Navigator**: Seamless navigation between tmux panes and Neovim
+- **Toggleterm**: Persistent and toggleable terminal windows in multiple orientations
 
 ## How It Works
 
@@ -100,8 +101,8 @@ The configuration loads in this sequence:
 
 1. **init.lua** loads core modules and the plugin system
 2. **plugins/init.lua** initializes lazy.nvim and loads plugin specifications
-3. **plugins/specs/*.lua** define which plugins to install and how to configure them
-4. **plugins/configs/*.lua** contain the detailed configuration for each plugin
+3. **plugins/specs/\*.lua** define which plugins to install and how to configure them
+4. **plugins/configs/\*.lua** contain the detailed configuration for each plugin
 
 This modular approach keeps the configuration organized and makes it easy to add, remove, or modify components.
 
@@ -117,7 +118,7 @@ To add a new plugin:
 -- Example: Adding a new UI plugin in lua/plugins/specs/ui.lua
 return {
   -- Existing plugins...
-  
+
   -- Add your new plugin
   {
     "username/new-plugin",
@@ -133,9 +134,7 @@ return {
 
 ```lua
 -- lua/plugins/configs/new-plugin.lua
-------------------------------------------
 -- New Plugin Configuration
-------------------------------------------
 
 require("new-plugin").setup({
   -- Your plugin options here
@@ -181,6 +180,13 @@ Key bindings are organized into several layers:
   - `<leader>l` - LSP operations
   - `<leader>vs` - Python venv selection
   - `<leader>fm` - Format file with conform
+  - `<leader>t` - Terminal operations:
+    - `<leader>tt` - Toggle terminal
+    - `<leader>tf` - Float terminal
+    - `<leader>th` - Horizontal terminal
+    - `<leader>tv` - Vertical terminal
+    - `<leader>tg` - LazyGit terminal
+  - `<C-\>` - Quick toggle terminal
 
 Use `<leader>?` to see all available key bindings.
 
@@ -189,15 +195,18 @@ Use `<leader>?` to see all available key bindings.
 If you encounter issues:
 
 1. **Plugin loading problems**:
+
    - Check `:checkhealth` for plugin-related issues
    - Ensure dependencies are correctly specified
    - Look for errors in the specific plugin config file
 
 2. **Conflicts between plugins**:
+
    - Check for duplicate key bindings across plugin configs
    - Ensure plugin load order is correct (some plugins must load before others)
 
 3. **Performance issues**:
+
    - Consider lazy-loading more plugins with `event`, `ft`, or `cmd` options
    - Run `:Lazy profile` to see plugin load times
 
