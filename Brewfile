@@ -21,7 +21,7 @@ brew "git"
 # Lazier way to manage everything docker
 brew "lazydocker"
 # Simple terminal UI for git commands
-brew "lazygit", link: true
+brew "lazygit"
 # Implementation of the file(1) command
 brew "libmagic"
 # Java-based project management
@@ -46,8 +46,6 @@ brew "tmux"
 brew "tpm"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
-# Generate WireGuard profile from Cloudflare Warp account
-brew "wgcf"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # Fish-like fast/unobtrusive autosuggestions for zsh

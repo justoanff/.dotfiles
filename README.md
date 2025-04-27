@@ -84,6 +84,7 @@ bat cache --build
 ## Key Shortcuts and Aliases
 
 ### Shell Aliases
+
 - `z` - Smart directory navigation (replaces cd)
 - `ls` - Enhanced directory listing with icons
 - `lst` - Tree view of directories
@@ -94,6 +95,7 @@ bat cache --build
 - `vf` - Fuzzy find and open files in neovim
 
 ### Tmux Shortcuts
+
 - `Ctrl+a` - Prefix key
 - `|` - Split window horizontally
 - `-` - Split window vertically
@@ -111,4 +113,38 @@ cd ~/.dotfiles
 git pull
 brew bundle
 stow .
-``` 
+```
+
+## Exporting Homebrew Packages
+
+To export all installed Homebrew formulae (command-line tools) and casks (GUI applications):
+
+```bash
+brew bundle dump --describe --file=~/.dotfiles/Brewfile --force
+```
+
+- `--describe` adds comments describing each package
+- `--file=~/.dotfiles/Brewfile` specifies the output file path
+- `--force` overwrites an existing Brewfile
+
+### Reinstalling on Another Machine
+
+To replicate your setup on a new machine:
+
+1. Transfer the Brewfile to the new machine (or clone this repo)
+2. Run:
+   ```bash
+   brew bundle --file=~/.dotfiles/Brewfile
+   ```
+
+### Listing Installed Packages Separately
+
+If you prefer to list installed packages without creating a Brewfile:
+
+```bash
+# List all formulae (CLI tools)
+brew list --formula
+
+# List all casks (GUI applications)
+brew list --cask
+```
