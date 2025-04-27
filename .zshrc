@@ -65,7 +65,7 @@ export COMPOSE_BAKE=true
 # ALIASES & FUNCTIONS
 # Modern directory commands
 alias cd=z
-alias ls="eza --icons"
+alias ls="eza -al --group-directories-first --icons"
 alias lst="eza --tree --level=2 --icons"
 
 # Utility shortcuts
