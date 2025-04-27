@@ -13,9 +13,71 @@
   },
   "ui_font_size": 16,
   "buffer_font_size": 16,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+
   "theme": {
     "mode": "system",
     "light": "One Light",
     "dark": "Tokyo Night Storm"
+  },
+
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  },
+
+  "tabs": {
+    "close_position": "right",
+    "file_icons": true,
+    "git_status": true,
+    "activate_on_close": "history",
+    "show_close_button": "hover",
+    "show_diagnostics": "off"
+  },
+
+  "terminal": {
+    "font_family": "JetBrainsMono Nerd Font",
+    "blinking": "on",
+    "detect_venv": {
+      "on": {
+        // Default directories to search for virtual environments, relative
+        // to the current working directory. We recommend overriding this
+        // in your project's settings, rather than globally.
+        "directories": [".env", "env", ".venv", "venv"],
+        // Can also be `csh`, `fish`, and `nushell`
+        "activate_script": "default"
+      }
+    }
+  },
+
+  "ui_font_features": {
+    "calt": true
+  },
+
+  "auto_install_extensions": {
+    "html": true,
+    "dockerfile": true,
+    "docker-compose": true
+  },
+
+  "lsp": {
+    "pyright": {
+      "settings": {
+        "python.analysis": {
+          "diagnosticMode": "workspace",
+          "typeCheckingMode": "strict"
+        }
+      }
+    },
+
+    "java": {
+      "settings": {},
+      "initialization_options": {}
+    },
+
+    "jdtls": {
+      "initialization_options": {}
+    }
   }
 }
