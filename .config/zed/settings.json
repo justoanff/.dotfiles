@@ -7,6 +7,13 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "assistant": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-3.7-sonnet-thought"
+    },
+    "version": "2"
+  },
   "telemetry": {
     "metrics": false,
     "diagnostics": false
@@ -14,7 +21,10 @@
   "ui_font_size": 16,
   "buffer_font_size": 16,
   "buffer_font_family": "JetBrainsMono Nerd Font",
-
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware"
+  },
   "theme": {
     "mode": "system",
     "light": "One Light",

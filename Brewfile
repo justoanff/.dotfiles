@@ -52,14 +52,14 @@ brew "zoxide"
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
-# Password manager that keeps all passwords secure behind one password
-cask "1password"
 # Command-line interface for 1Password
 cask "1password-cli"
+# iOS App Store alternative
+cask "altserver"
 # Allows connection to a computer remotely
 cask "anydesk"
-# Chromium based browser
-cask "arc"
+# Desktop password and login vault
+cask "bitwarden"
 # Free app that makes your Internet safer
 cask "cloudflare-warp"
 # Write, edit, and chat about your code with AI
@@ -106,12 +106,8 @@ cask "stremio"
 cask "sublime-text"
 # SSH client
 cask "termius"
-# Adaptive AI IDE
-cask "trae"
 # Open-source code editor
 cask "visual-studio-code"
-# Rust-based terminal
-cask "warp"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
 # Connect to Windows
