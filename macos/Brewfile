@@ -24,8 +24,6 @@ brew "lazydocker"
 brew "lazygit"
 # Implementation of the file(1) command
 brew "libmagic"
-# Java-based project management
-brew "maven"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -44,16 +42,12 @@ brew "superfile"
 brew "tmux"
 # Plugin manager for tmux
 brew "tpm"
-# Extremely fast Python package installer and resolver, written in Rust
-brew "uv"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
-# Command-line interface for 1Password
-cask "1password-cli"
 # iOS App Store alternative
 cask "altserver"
 # Allows connection to a computer remotely
