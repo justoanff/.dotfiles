@@ -2,3 +2,6 @@
 	autocrlf = true
 [push]
 	autoSetupRemote = true
+[user]
+	email = toantran.co.work@gmail.com
+	name = justoanff
