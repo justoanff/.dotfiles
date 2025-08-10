@@ -4,14 +4,14 @@
     {
       "Id": "7zip",
       "Name": "7zip",
-      "Version": "25.00",
+      "Version": "25.01",
       "Source": "main",
       "ManagerName": "Scoop"
     },
     {
       "Id": "7zip.7zip",
       "Name": "7-Zip",
-      "Version": "25.00",
+      "Version": "25.01",
       "Source": "winget",
       "ManagerName": "Winget"
     },
@@ -25,70 +25,63 @@
     {
       "Id": "AnyDesk.AnyDesk",
       "Name": "AnyDesk",
-      "Version": "ad 9.5.7",
+      "Version": "ad 9.5.11",
       "Source": "winget",
       "ManagerName": "Winget"
     },
     {
       "Id": "Anysphere.Cursor",
       "Name": "Cursor",
-      "Version": "1.2.1",
+      "Version": "1.4.3",
       "Source": "winget",
       "ManagerName": "Winget"
     },
     {
       "Id": "Cloudflare.Warp",
       "Name": "Cloudflare WARP",
-      "Version": "25.5.893.0",
+      "Version": "25.5.943.0",
       "Source": "winget",
       "ManagerName": "Winget"
     },
     {
       "Id": "Discord.Discord",
       "Name": "Discord",
-      "Version": "1.0.9198",
+      "Version": "1.0.9202",
       "Source": "winget",
       "ManagerName": "Winget"
     },
     {
       "Id": "Docker.DockerDesktop",
       "Name": "Docker Desktop",
-      "Version": "4.43.0",
-      "Source": "winget",
-      "ManagerName": "Winget"
-    },
-    {
-      "Id": "EpicGames.EpicGamesLauncher",
-      "Name": "Epic Games Launcher",
-      "Version": "1.3.149.0",
+      "Version": "4.44.0",
       "Source": "winget",
       "ManagerName": "Winget"
     },
     {
       "Id": "Flow-Launcher.Flow-Launcher",
       "Name": "Flow Launcher",
-      "Version": "1.20.1",
+      "Version": "1.20.2",
       "Source": "winget",
       "ManagerName": "Winget"
     },
     {
       "Id": "Git.Git",
       "Name": "Git",
-      "Version": "2.50.0",
+      "Version": "2.50.1",
       "Source": "winget",
       "ManagerName": "Winget"
     },
     {
       "Id": "Google.Chrome.EXE",
       "Name": "Google Chrome (EXE)",
-      "Version": "138.0.7204.97",
+      "Version": "139.0.7258.67",
       "Source": "winget",
       "ManagerName": "Winget"
     },
     {
       "Id": "Google.GoogleDrive",
       "Name": "Google Drive",
-      "Version": "108.0.1.0",
+      "Version": "112.0.3.0",
       "Source": "winget",
       "ManagerName": "Winget"
     },
@@ -100,15 +93,15 @@
       "ManagerName": "Winget"
     },
     {
-      "Id": "JetBrainsMono-NF",
-      "Name": "JetBrainsMono NF",
-      "Version": "3.4.0",
+      "Id": "JetBrains-Mono",
+      "Name": "JetBrains Mono",
+      "Version": "2.304",
       "Source": "nerd-fonts",
       "ManagerName": "Scoop"
     },
     {
-      "Id": "JetBrainsMono-NF-Mono",
-      "Name": "JetBrainsMono NF Mono",
+      "Id": "JetBrainsMono-NF",
+      "Name": "JetBrainsMono NF",
       "Version": "3.4.0",
       "Source": "nerd-fonts",
       "ManagerName": "Scoop"
@@ -128,16 +121,9 @@
       "ManagerName": "Winget"
     },
     {
-      "Id": "Logitech.GHUB",
-      "Name": "Logitech G HUB",
-      "Version": "2025.4.719084",
-      "Source": "winget",
-      "ManagerName": "Winget"
-    },
-    {
       "Id": "Microsoft.AppInstaller",
       "Name": "App Installer",
-      "Version": "1.26.400.0",
+      "Version": "1.26.430.0",
       "Source": "winget",
       "ManagerName": "Winget"
     },
@@ -151,7 +137,25 @@
     {
       "Id": "Microsoft.VisualStudioCode",
       "Name": "Microsoft Visual Studio Code",
-      "Version": "1.101.2",
+      "Version": "1.103.0",
+      "Source": "winget",
+      "ManagerName": "Winget"
+    },
+    {
+      "Id": "Microsoft.WindowsTerminal",
+      "Name": "Windows Terminal",
+      "Version": "1.22.12111.0",
+      "Source": "winget",
+      "ManagerName": "Winget",
+      "Updates": {
+        "UpdatesIgnored": true,
+        "IgnoredVersion": "*"
+      }
+    },
+    {
+      "Id": "Mozilla.Firefox.DeveloperEdition.en-GB",
+      "Name": "Firefox Developer Edition (en-GB)",
+      "Version": "142.0",
       "Source": "winget",
       "ManagerName": "Winget"
     },
@@ -165,7 +169,7 @@
     {
       "Id": "Notion.Notion",
       "Name": "Notion",
-      "Version": "4.14.0",
+      "Version": "4.17.0",
       "Source": "winget",
       "ManagerName": "Winget"
     },
@@ -179,7 +183,7 @@
     {
       "Id": "OpenWhisperSystems.Signal",
       "Name": "Signal",
-      "Version": "7.60.0",
+      "Version": "7.65.0",
       "Source": "winget",
       "ManagerName": "Winget"
     },
@@ -193,7 +197,7 @@
     {
       "Id": "Postman.Postman",
       "Name": "Postman",
-      "Version": "11.52.5",
+      "Version": "11.57.6",
       "Source": "winget",
       "ManagerName": "Winget"
     },
@@ -205,32 +209,29 @@
       "ManagerName": "Winget"
     },
     {
-      "Id": "RazerInc.RazerInstaller.Synapse4",
-      "Name": "Razer Synapse 4",
-      "Version": "2.2.0.789",
-      "Source": "winget",
-      "ManagerName": "Winget"
-    },
-    {
-      "Id": "RiotGames.LeagueOfLegends.VN2",
-      "Name": "League of Legends (Vietnam server)",
-      "Version": "99.0.0.2477",
-      "Source": "winget",
-      "ManagerName": "Winget"
-    },
-    {
-      "Id": "RiotGames.Valorant.AP",
-      "Name": "VALORANT (Asia-Pacific server)",
-      "Version": "95.0.1.2166",
+      "Id": "RileyTestut.AltServer",
+      "Name": "AltServer",
+      "Version": "1.7.2",
       "Source": "winget",
       "ManagerName": "Winget"
     },
     {
       "Id": "ShareX.ShareX",
       "Name": "ShareX",
-      "Version": "17.0.0",
+      "Version": "17.1.0",
       "Source": "winget",
       "ManagerName": "Winget"
+    },
+    {
+      "Id": "Spotify.Spotify",
+      "Name": "Spotify",
+      "Version": "1.2.64.408.g0a9b557c",
+      "Source": "winget",
+      "ManagerName": "Winget",
+      "Updates": {
+        "UpdatesIgnored": true,
+        "IgnoredVersion": "*"
+      }
     },
     {
       "Id": "Stremio.StremioService",
@@ -240,23 +241,23 @@
       "ManagerName": "Winget"
     },
     {
-      "Id": "SublimeHQ.SublimeText.4",
-      "Name": "Sublime Text 4",
-      "Version": "4.0.0.420000",
+      "Id": "Telegram.TelegramDesktop",
+      "Name": "Telegram Desktop",
+      "Version": "6.0.2",
       "Source": "winget",
       "ManagerName": "Winget"
     },
     {
       "Id": "Termius.Termius",
       "Name": "Termius",
-      "Version": "9.22.1",
+      "Version": "9.27.2",
       "Source": "winget",
       "ManagerName": "Winget"
     },
     {
       "Id": "TheDocumentFoundation.LibreOffice",
       "Name": "LibreOffice",
-      "Version": "25.2.3.2",
+      "Version": "25.2.5.2",
       "Source": "winget",
       "ManagerName": "Winget"
     },
@@ -264,6 +265,13 @@
       "Id": "Valve.Steam",
       "Name": "Steam",
       "Version": "2.10.91.91",
+      "Source": "winget",
+      "ManagerName": "Winget"
+    },
+    {
+      "Id": "Warp.Warp",
+      "Name": "Warp",
+      "Version": "v0.2025.08.06.08.12.stable_02",
       "Source": "winget",
       "ManagerName": "Winget"
     },
@@ -282,37 +290,37 @@
       "ManagerName": "Scoop"
     },
     {
-      "Id": "c0re100.qBittorrent-Enhanced-Edition",
-      "Name": "qBittorrent Enhanced Edition",
-      "Version": "5.1.1.10",
-      "Source": "winget",
-      "ManagerName": "Winget"
-    },
-    {
-      "Id": "everything",
-      "Name": "Everything",
-      "Version": "1.4.1.1028",
-      "Source": "extras",
+      "Id": "dive",
+      "Name": "Dive",
+      "Version": "0.13.1",
+      "Source": "main",
       "ManagerName": "Scoop"
     },
     {
       "Id": "eza",
       "Name": "Eza",
-      "Version": "0.21.6",
+      "Version": "0.23.0",
       "Source": "main",
       "ManagerName": "Scoop"
     },
     {
       "Id": "fastfetch",
       "Name": "Fastfetch",
-      "Version": "2.47.0",
+      "Version": "2.49.0",
       "Source": "main",
       "ManagerName": "Scoop"
     },
     {
       "Id": "fzf",
       "Name": "Fzf",
-      "Version": "0.64.0",
+      "Version": "0.65.1",
+      "Source": "main",
+      "ManagerName": "Scoop"
+    },
+    {
+      "Id": "innounp",
+      "Name": "Innounp",
+      "Version": "2.64.6",
       "Source": "main",
       "ManagerName": "Scoop"
     },
@@ -326,7 +334,7 @@
     {
       "Id": "lazygit",
       "Name": "Lazygit",
-      "Version": "0.53.0",
+      "Version": "0.54.1",
       "Source": "extras",
       "ManagerName": "Scoop"
     },
@@ -340,21 +348,21 @@
     {
       "Id": "mise",
       "Name": "Mise",
-      "Version": "2025.7.1",
+      "Version": "2025.8.7",
       "Source": "main",
       "ManagerName": "Scoop"
     },
     {
       "Id": "neovim",
       "Name": "Neovim",
-      "Version": "0.11.2",
+      "Version": "0.11.3",
       "Source": "main",
       "ManagerName": "Scoop"
     },
     {
       "Id": "oh-my-posh",
       "Name": "Oh My Posh",
-      "Version": "26.13.0",
+      "Version": "26.19.0",
       "Source": "main",
       "ManagerName": "Scoop"
     },
@@ -380,16 +388,16 @@
       "ManagerName": "Scoop"
     },
     {
-      "Id": "tcno-acc-switcher",
-      "Name": "Tcno Acc Switcher",
-      "Version": "5.0-2024-08-25_00",
+      "Id": "sublime-text",
+      "Name": "Sublime Text",
+      "Version": "4-4200",
       "Source": "extras",
       "ManagerName": "Scoop"
     },
     {
       "Id": "unigetui",
       "Name": "Unigetui",
-      "Version": "3.2.0",
+      "Version": "3.3.1",
       "Source": "extras",
       "ManagerName": "Scoop"
     },
