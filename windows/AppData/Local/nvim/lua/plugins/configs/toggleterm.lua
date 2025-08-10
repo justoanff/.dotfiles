@@ -29,6 +29,14 @@ toggleterm.setup({
   },
 })
 
+-- Convenience keymaps (match pattern used in tools.lua before refactor)
+local map = vim.keymap.set
+local opts = { noremap = true, silent = true }
+map("n", "<leader>tt", "<cmd>ToggleTerm<CR>", opts)
+map("n", "<leader>tf", "<cmd>ToggleTerm direction=float<CR>", opts)
+map("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal<CR>", opts)
+map("n", "<leader>tv", "<cmd>ToggleTerm direction=vertical<CR>", opts)
+
 -- Terminal window mappings
 vim.cmd([[
   autocmd! TermOpen term://* lua set_terminal_keymaps()
