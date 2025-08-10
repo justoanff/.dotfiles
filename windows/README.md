@@ -60,11 +60,19 @@ Notes:
   - `windows/Documents/PowerShell/Microsoft.PowerShell_profile.ps1` → `%USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`
   - `windows/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1` → `%USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`
   - `windows/.config` → `%USERPROFILE%\.config`
+  - `windows/scoop/apps/bat/current/themes` → `%SCOOP%\apps\bat\current\themes` (fallback `%USERPROFILE%\scoop\apps\bat\current\themes`)
+  - `windows/scoop/apps/bat/current/config` → `%SCOOP%\apps\bat\current\config` (fallback `%USERPROFILE%\scoop\apps\bat\current\config`)
 
-Optional (bat configuration):
+Optional (bat configuration – manual):
 
 ```powershell
-New-Item -ItemType SymbolicLink -Path "$env:APPDATA\bat" -Target "$HOME\.dotfiles\windows\scoop\apps\bat\current" -Force
+# Themes
+New-Item -ItemType SymbolicLink -Path "$env:SCOOP\apps\bat\current\themes" -Target "$HOME\.dotfiles\windows\scoop\apps\bat\current\themes" -Force
+
+# Config
+New-Item -ItemType SymbolicLink -Path "$env:SCOOP\apps\bat\current\config" -Target "$HOME\.dotfiles\windows\scoop\apps\bat\current\config" -Force
+
+# If $env:SCOOP is not set, replace with "$env:USERPROFILE\scoop"
 ```
 
 ### 5. Build bat cache for custom theme
@@ -115,7 +123,9 @@ $maps = @(
   @{ Link = "$env:LOCALAPPDATA\nvim"; Target = "$repo\windows\AppData\Local\nvim" },
   @{ Link = "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"; Target = "$repo\windows\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" },
   @{ Link = "$env:USERPROFILE\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"; Target = "$repo\windows\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" },
-  @{ Link = "$env:USERPROFILE\.config"; Target = "$repo\windows\.config" }
+  @{ Link = "$env:USERPROFILE\.config"; Target = "$repo\windows\.config" },
+  @{ Link = "$env:SCOOP\apps\bat\current\themes"; Target = "$repo\windows\scoop\apps\bat\current\themes" },
+  @{ Link = "$env:SCOOP\apps\bat\current\config"; Target = "$repo\windows\scoop\apps\bat\current\config" }
 )
 foreach ($m in $maps) {
   if (-not (Test-Path $m.Link)) { Write-Host "[FAIL] $($m.Link)" -ForegroundColor Red; continue }

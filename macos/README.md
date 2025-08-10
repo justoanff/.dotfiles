@@ -26,15 +26,28 @@ cd ~/.dotfiles
 brew bundle
 ```
 
-### 3. Create symbolic links
+### 3. Create symbolic links (recommended via GNU Stow)
 
-Use stow to create symbolic links for all configurations:
+- Install Stow: `brew install stow`
+- Recommendation: only stow the `macos` package into `$HOME` (safer, better scope control).
 
+Preview (dry run):
 ```bash
-stow .
+cd ~/.dotfiles && stow -n -v -t ~ macos
 ```
 
-Alternatively, you can create symbolic links manually for specific configurations:
+Apply:
+```bash
+cd ~/.dotfiles && stow -v -t ~ macos
+```
+
+Alternatively, if you're already inside `~/.dotfiles/macos`:
+```bash
+cd ~/.dotfiles/macos && stow -n -v -t ~ .   # preview
+cd ~/.dotfiles/macos && stow -v -t ~ .      # apply
+```
+
+If you don't use Stow, you can create symlinks manually:
 
 ```bash
 # Create config directories if they don't exist
@@ -48,6 +61,32 @@ ln -sf ~/.dotfiles/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf
 ln -sf ~/.dotfiles/.config/starship.toml ~/.config/starship.toml
 # Add more symbolic links as needed
 ```
+
+## Using GNU Stow effectively
+
+- Common flags:
+  - `-n` (dry run): print actions without changing anything.
+  - `-v` (verbose): print detailed operations.
+  - `-t <dir>` (target): where links are created, typically `~`.
+  - `-d <dir>` (dir): directory containing packages (defaults to the current dir). Example: `stow -d ~/.dotfiles -t ~ macos`.
+  - `-S` (default): stow (create links).
+  - `-D`: unstow (remove links).
+  - `-R`: restow (relink after layout changes).
+  - `--adopt`: move existing files from target into the package in the repo (helpful when importing existing configs).
+  - `--no-folding`: avoid directory folding; link individual files instead of a single directory link.
+
+- Layout conventions:
+  - The `macos` package should mirror the destination layout, e.g., `macos/.config/nvim`, `macos/.config/tmux`, etc.
+  - Place a `.stow-local-ignore` in the package to ignore files you do not want to link (e.g., `.DS_Store`).
+
+- Common operations:
+  - Unstow: `stow -D -v -t ~ macos`
+  - Restow after structure changes: `stow -R -v -t ~ macos`
+  - Adopt existing files from `~` into the repo: `stow --adopt -v -t ~ macos`
+
+- Platform notes:
+  - macOS Apple Silicon: Homebrew lives at `/opt/homebrew`; if you link paths involving Homebrew, ensure they match (e.g., `$(brew --prefix)`).
+  - Always run with `-n` first for safety.
 
 ### 4. Set up zsh as default shell
 

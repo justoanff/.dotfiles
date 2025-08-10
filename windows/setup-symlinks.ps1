@@ -48,11 +48,18 @@ $windowsRoot  = Join-Path $repoRoot 'windows'
 
 Write-Info "Repository root: $repoRoot"
 
+$scoopRoot = $Env:SCOOP
+if (-not $scoopRoot -or -not (Test-Path -LiteralPath $scoopRoot)) {
+  $scoopRoot = Join-Path $Env:USERPROFILE 'scoop'
+}
+
 $mappings = @(
   @{ Source = Join-Path $windowsRoot 'AppData/Local/nvim'; Target = Join-Path $Env:LOCALAPPDATA 'nvim'; Type = 'Directory' },
   @{ Source = Join-Path $windowsRoot 'Documents/PowerShell/Microsoft.PowerShell_profile.ps1'; Target = Join-Path $Env:USERPROFILE 'Documents/PowerShell/Microsoft.PowerShell_profile.ps1'; Type = 'File' },
   @{ Source = Join-Path $windowsRoot 'Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1'; Target = Join-Path $Env:USERPROFILE 'Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1'; Type = 'File' },
-  @{ Source = Join-Path $windowsRoot '.config'; Target = Join-Path $Env:USERPROFILE '.config'; Type = 'Directory' }
+  @{ Source = Join-Path $windowsRoot '.config'; Target = Join-Path $Env:USERPROFILE '.config'; Type = 'Directory' },
+  @{ Source = Join-Path $windowsRoot 'scoop/apps/bat/current/themes'; Target = (Join-Path $scoopRoot 'apps/bat/current/themes'); Type = 'Directory' },
+  @{ Source = Join-Path $windowsRoot 'scoop/apps/bat/current/config'; Target = (Join-Path $scoopRoot 'apps/bat/current/config'); Type = 'File' }
 )
 
 if (-not (Test-Admin)) {
@@ -76,10 +83,27 @@ foreach ($m in $mappings) {
   if (Test-Path -LiteralPath $linkPath) {
     $item = Get-Item -LiteralPath $linkPath -Force
     if ($item.Attributes -band [IO.FileAttributes]::ReparsePoint) {
-      if ($DryRun) { Write-Act "Remove-Item -Force $linkPath (existing link)" } else { Remove-Item -LiteralPath $linkPath -Force }
+      if ($DryRun) {
+        Write-Act "Remove-Item -Force $linkPath (existing link)"
+      } else {
+        try {
+          Remove-Item -LiteralPath $linkPath -Force
+        } catch {
+          # Fallback for stubborn directory symlinks/junctions
+          try { cmd /c rmdir /Q /S "$linkPath" | Out-Null } catch { throw }
+        }
+      }
     } else {
       if ($script:Force) {
-        if ($DryRun) { Write-Act "Remove-Item -Recurse -Force $linkPath" } else { Remove-Item -LiteralPath $linkPath -Recurse -Force }
+        if ($DryRun) {
+          Write-Act "Remove-Item -Recurse -Force $linkPath"
+        } else {
+          try {
+            Remove-Item -LiteralPath $linkPath -Recurse -Force
+          } catch {
+            try { cmd /c rmdir /Q /S "$linkPath" | Out-Null } catch { throw }
+          }
+        }
       } else {
         $timestamp = Get-Date -Format 'yyyyMMdd-HHmmss'
         $backupPath = "$linkPath.backup-$timestamp"
