@@ -108,7 +108,14 @@ require("neo-tree").setup({
   -- A list of functions, each representing a global custom command
   -- that will be available in all sources (if not overridden in `opts[source_name].commands`)
   -- see `:h neo-tree-custom-commands-global`
-  commands = {},
+  commands = {
+    image_wezterm = function(state)
+      local node = state.tree:get_node()
+      if node and node.type == "file" then
+        require("image_preview").PreviewImage(node.path)
+      end
+    end,
+  },
   window = {
     position = "left",
     width = 40,
@@ -169,6 +176,7 @@ require("neo-tree").setup({
       ["<"] = "prev_source",
       [">"] = "next_source",
       ["i"] = "show_file_details",
+      ["<leader>ip"] = "image_wezterm",
       -- ["i"] = {
       --   "show_file_details",
       --   -- format strings of the timestamps shown for date created and last modified (see `:h os.date()`)
@@ -233,6 +241,7 @@ require("neo-tree").setup({
         ["[g"] = "prev_git_modified",
         ["]g"] = "next_git_modified",
         ["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
+        ["<leader>ip"] = "image_wezterm",
         ["oc"] = { "order_by_created", nowait = false },
         ["od"] = { "order_by_diagnostics", nowait = false },
         ["og"] = { "order_by_git_status", nowait = false },

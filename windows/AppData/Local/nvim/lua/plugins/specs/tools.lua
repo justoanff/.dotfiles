@@ -79,4 +79,13 @@ return {
       require("plugins.configs.toggleterm")
     end,
   },
+
+  -- Image Preview (WezTerm/Kitty/iTerm2)
+  {
+    'adelarsq/image_preview.nvim',
+    event = 'VeryLazy',
+    config = function()
+      require('plugins.configs.image-preview')
+    end,
+  },
 }
