@@ -94,6 +94,7 @@ This configuration includes several powerful plugins:
 - **Gitsigns**: Git integration in the editor
 - **Tmux Navigator**: Seamless navigation between tmux panes and Neovim
 - **Toggleterm**: Persistent and toggleable terminal windows in multiple orientations
+- **Markdown Preview**: Live preview Markdown in your browser with synced updates
 
 ## How It Works
 
@@ -187,6 +188,10 @@ Key bindings are organized into several layers:
     - `<leader>tv` - Vertical terminal
     - `<leader>tg` - LazyGit terminal
   - `<C-\>` - Quick toggle terminal
+  - Markdown Preview:
+    - `<leader>ms` - Start preview
+    - `<leader>mS` - Stop preview
+    - `<leader>mp` - Toggle preview
 
 Use `<leader>?` to see all available key bindings.
 
@@ -213,6 +218,20 @@ If you encounter issues:
 4. **Missing features after updates**:
    - Check the plugin's GitHub repository for breaking changes
    - Update your configurations to match the new plugin API
+
+5. **Markdown preview page cannot scroll in browser**:
+   - This config disables sync scroll by default to avoid wheel-lock issues:
+     - `vim.g.mkdp_preview_options.disable_sync_scroll = 1`
+   - To re-enable synchronized scrolling, set it to `0` in `plugins/configs/markdown-preview.lua`.
+
+6. **Manually opening preview in a specific browser**:
+   - You can define `g:mkdp_browserfunc` to control the browser (see plugin README).
+   - Reference: `iamcco/markdown-preview.nvim`.
+
+---
+
+References:
+- Markdown Preview plugin: `https://github.com/iamcco/markdown-preview.nvim`
 
 ---
 
