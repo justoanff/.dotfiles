@@ -1,5 +1,5 @@
 [core]
-	autocrlf = true
+	autocrlf = input
 [push]
 	autoSetupRemote = true
 [user]
