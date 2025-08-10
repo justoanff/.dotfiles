@@ -7,6 +7,10 @@ A collection of configuration files for PowerShell, Neovim, and other developmen
 - Windows 10/11
 - [PowerShell 7+](https://github.com/PowerShell/PowerShell)
 - [Scoop](https://scoop.sh) - A command-line installer for Windows
+- Windows Developer Mode enabled (or run PowerShell as Administrator) to create symlinks
+- Optional (for Neovim plugins):
+  - Node.js LTS and Yarn for `markdown-preview.nvim`
+  - WezTerm or Kitty for `image_preview.nvim`
 
 ## Installation
 
@@ -34,16 +38,32 @@ scoop bucket add nerd-fonts
 scoop import $HOME\.dotfiles\windows\scoop_backup.json
 ```
 
-### 4. Create symbolic links
+### 4. Create symbolic links (automated)
+
+Use the provided script to create all symlinks safely (idempotent, supports backup and force-overwrite):
 
 ```powershell
-# For PowerShell profile
-New-Item -ItemType SymbolicLink -Path $PROFILE -Target "$HOME\.dotfiles\windows\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" -Force
+# Dry run (preview actions)
+pwsh -File windows/setup-symlinks.ps1 -DryRun
 
-# For Neovim configuration
-New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\nvim" -Target "$HOME\.dotfiles\windows\AppData\Local\nvim" -Force
+# Execute
+pwsh -File windows/setup-symlinks.ps1
 
-# For bat configuration
+# Overwrite existing real files/folders instead of backing up
+pwsh -File windows/setup-symlinks.ps1 -Force
+```
+
+Notes:
+- If not running as Administrator, enable Windows Developer Mode to allow symlink creation without admin rights.
+- The script links:
+  - `windows/AppData/Local/nvim` → `%LOCALAPPDATA%\nvim`
+  - `windows/Documents/PowerShell/Microsoft.PowerShell_profile.ps1` → `%USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`
+  - `windows/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1` → `%USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`
+  - `windows/.config` → `%USERPROFILE%\.config`
+
+Optional (bat configuration):
+
+```powershell
 New-Item -ItemType SymbolicLink -Path "$env:APPDATA\bat" -Target "$HOME\.dotfiles\windows\scoop\apps\bat\current" -Force
 ```
 
@@ -84,6 +104,35 @@ You can customize any of these dotfiles to suit your preferences. After making c
 cd $HOME\.dotfiles
 git pull
 ```
+
+## Verify symlinks
+
+Quick check that links were created correctly:
+
+```powershell
+$repo = "$HOME/.dotfiles"
+$maps = @(
+  @{ Link = "$env:LOCALAPPDATA\nvim"; Target = "$repo\windows\AppData\Local\nvim" },
+  @{ Link = "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"; Target = "$repo\windows\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" },
+  @{ Link = "$env:USERPROFILE\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"; Target = "$repo\windows\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" },
+  @{ Link = "$env:USERPROFILE\.config"; Target = "$repo\windows\.config" }
+)
+foreach ($m in $maps) {
+  if (-not (Test-Path $m.Link)) { Write-Host "[FAIL] $($m.Link)" -ForegroundColor Red; continue }
+  $gi = Get-Item $m.Link -Force
+  $isLink = ($gi.Attributes -band [IO.FileAttributes]::ReparsePoint)
+  $target = $gi.Target
+  if (-not $target) { $target = (Resolve-Path $m.Link).Path }
+  $ok = $isLink -and ($target -eq $m.Target)
+  Write-Host ("[{0}] {1} -> {2}" -f ($ok?'OK':'FAIL'), $m.Link, $target) -ForegroundColor ($ok?'Green':'Yellow')
+}
+```
+
+## Troubleshooting
+
+- Symlink creation fails: Enable Windows Developer Mode or run PowerShell as Administrator.
+- `markdown-preview.nvim` build issues: install Node LTS and Yarn, then `:Lazy sync` in Neovim.
+- Image preview not showing: use WezTerm/Kitty as your terminal.
 
 ## Exporting Scoop Packages
 
