@@ -6,6 +6,25 @@ require("noice").setup({
       ["cmp.entry.get_documentation"] = true,                   -- Override cmp docs
     },
   },
+  routes = {
+    {
+      filter = {
+        event = "notify",
+        find = "deprecated",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        event = "msg_show",
+        any = {
+          { find = "deprecated" },
+          { find = "Defining diagnostic signs" },
+        },
+      },
+      opts = { skip = true },
+    },
+  },
   presets = {
     bottom_search = true,         -- Classic bottom search
     command_palette = true,       -- Combined cmdline and popup
