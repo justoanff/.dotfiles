@@ -1,70 +1,62 @@
 # .dotfiles
 
-A cross-platform dotfiles repository for managing development environments on both macOS and Windows.
+Best-practice, minimal guide to manage symlinks with GNU Stow in this repo.
 
-## Overview
+## Prerequisites
+- Git
+- GNU Stow
 
-This repository contains configuration files, scripts, and setup instructions for:
-- Terminal customizations
-- Shell configurations (zsh for macOS, PowerShell for Windows)
-- Neovim editor setup
-- Package management (Homebrew for macOS, Scoop for Windows)
-- Development tools and utilities
+Install Stow quickly:
+```bash
+# macOS (Homebrew)
+brew install stow
 
-## Platform-Specific Setup
+# Debian/Ubuntu
+sudo apt-get update && sudo apt-get install -y stow
+```
 
-### macOS
+## Symlink with Stow (run from repo root)
+```bash
+# macOS
+stow -nvt "$HOME" macos && stow -vt "$HOME" macos
 
-The macOS configuration includes:
-- zsh shell with starship prompt
-- Homebrew package management
-- tmux terminal multiplexer
-- Neovim editor configuration
-- mise for runtime version management
+# Linux
+stow -nvt "$HOME" linux && stow -vt "$HOME" linux
 
-[View macOS Setup Instructions](macos/README.md)
+# Windows
+# Prefer the PowerShell script: windows/setup-symlinks.ps1
+# Or use Stow inside WSL targeting the WSL home.
+```
 
-### Windows
+## Common operations
+```bash
+# Restow (update links after changes)
+stow -Rvt "$HOME" linux
 
-The Windows configuration includes:
-- PowerShell 7+ with Oh My Posh
-- Scoop package management
-- Neovim editor configuration
-- mise for runtime version management
-- Terminal enhancements for PowerShell
+# Unstow (remove links)
+stow -Dvt "$HOME" linux
+```
 
-[View Windows Setup Instructions](windows/README.md)
+## Debugging
+- Conflicts: backup/remove the real file, then stow again
+  ```bash
+  mv ~/.zshrc ~/.zshrc.bak && stow -vt "$HOME" linux
+  ```
+- Adopt existing files into the repo
+  ```bash
+  stow --adopt -vt "$HOME" linux && git add -A && git commit -m "chore(stow): adopt existing files"
+  ```
+- Verify symlinks
+  ```bash
+  ls -l ~/.zshrc && readlink -f ~/.zshrc
+  ```
+- Always run from repo root; set target to home with `-t "$HOME"`
+- Use `.stow-local-ignore` inside a package (e.g. `linux/`) to skip files
 
-## Key Features
-
-- **Cross-Platform Tools**: Many tools are available on both platforms, providing a consistent experience
-- **Modern Terminal**: Enhanced terminal experience with themes, icons, and productivity improvements
-- **Neovim Configuration**: Consistent text editing experience across platforms
-- **Version Management**: mise for managing runtime versions (Python, Node.js, etc.)
-- **Git Integration**: Consistent Git configuration and tools like lazygit
-
-## Quick Start
-
-1. Clone this repository:
-   ```bash
-   # On macOS
-   git clone https://github.com/YOUR_USERNAME/.dotfiles.git ~/.dotfiles
-   
-   # On Windows
-   git clone https://github.com/YOUR_USERNAME/.dotfiles.git $HOME\.dotfiles
-   ```
-
-2. Navigate to your platform-specific directory and follow the instructions in the respective README file.
-
-## Sync Strategy
-
-These dotfiles use a symlink approach to maintain configurations in a single repository while creating links to the appropriate system locations.
+## Platform docs
+- macOS: `macos/README.md`
+- Linux: `linux/README.md`
+- Windows: `windows/README.md` (and `windows/setup-symlinks.ps1`)
 
 ## License
-
-This project is open-sourced under the MIT License.
-
-## Acknowledgments
-
-- Inspired by the dotfiles community
-- Built with open-source tools and configurations 
+MIT
