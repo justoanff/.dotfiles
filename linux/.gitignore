@@ -1,0 +1,15 @@
+github-copilot/
+jgit/
+qBittorrent/
+/.config/zed/conversations/
+/.config/zed/prompts/
+
+# macOS
+.DS_Store.DS_Store
+.DS_Store?
+**/.DS_Store
+# docker
+/.docker/buildx/
+/.docker/contexts/
+/.docker/.token_seed
+/.docker/.token_seed.lock

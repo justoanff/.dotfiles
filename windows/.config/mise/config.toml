@@ -1,7 +1,7 @@
 [tools]
 bun = "latest"
-java = "latest"
-node = "latest"
+java = "lts"
+node = "lts"
 pnpm = "latest"
 python = "3.10"
 uv = "latest"
