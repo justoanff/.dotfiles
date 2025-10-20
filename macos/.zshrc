@@ -62,9 +62,13 @@ export docker_buildkit=1
 # bake enable
 export COMPOSE_BAKE=true
 
+# brew conf
+export HOMEBREW_NO_ENV_HINTS=1
+
 # ALIASES & FUNCTIONS
 # Modern directory commands
 alias cd=z
+alias rm=trash
 alias ls="eza -al --group-directories-first --icons"
 alias lst="eza --tree --level=2 --icons"
 
@@ -74,6 +78,11 @@ alias ld=lazydocker
 alias lg=lazygit
 alias docker-compose="COMPOSE_BAKE=true docker-compose"
 alias docker compose="docker-compose"
+alias dc="docker compose"
+alias dcu="docker compose up -d"
+alias dcuf="docker compose up -d --force-recreate"
+alias dcd="docker compose down"
+alias dex="docker exec -it"
 alias ff=fastfetch
 
 # Python wrapper
@@ -106,4 +115,44 @@ vf() {
   local file
   file=$(fzf --preview 'bat --style=numbers --color=always --line-range :500 {}')
   [ -n "$file" ] && nvim "$file"
+}
+
+dcdv() {
+  echo "WARNING: This will remove containers AND volumes (data will be lost!)"
+  echo "Are you sure you want to continue? [y/N]"
+  read -r response
+  if [[ "$response" =~ ^[Yy]$ ]]; then
+    docker compose down -v "$@"
+  else
+    echo "Cancelled."
+  fi
+}
+
+# Docker wrapper to intercept dangerous commands
+docker() {
+  local args=("$@")
+  
+  # Check if this is a "compose down -v" command
+  if [[ "$1" == "compose" && "$2" == "down" ]]; then
+    local has_volume_flag=false
+    for arg in "${args[@]:2}"; do
+      if [[ "$arg" == "-v" || "$arg" == "--volumes" ]]; then
+        has_volume_flag=true
+        break
+      fi
+    done
+    
+    if [[ "$has_volume_flag" == true ]]; then
+      echo "WARNING: This will remove containers AND volumes (data will be lost!)"
+      echo "Are you sure you want to continue? [y/N]"
+      read -r response
+      if [[ ! "$response" =~ ^[Yy]$ ]]; then
+        echo "Cancelled."
+        return 1
+      fi
+    fi
+  fi
+  
+  # Execute the actual docker command
+  command docker "$@"
 }

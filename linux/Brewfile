@@ -32,6 +32,8 @@ brew "starship"
 brew "stow"
 # Modern and pretty fancy file manager for the terminal
 brew "superfile"
+# Command-line interface to the freedesktop.org trashcan
+brew "trash-cli"
 # Terminal multiplexer
 brew "tmux"
 # Plugin manager for tmux

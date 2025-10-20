@@ -1,16 +1,6 @@
 # Homebrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# SHELL PROMPT & THEMES
-# Powerlevel10k configuration (commented out)
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-# source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-
-# Load p10k config if exists
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # Starship prompt
 eval "$(starship init zsh)"
 
@@ -65,9 +55,13 @@ export docker_buildkit=1
 # bake enable
 export COMPOSE_BAKE=true
 
+# brew conf
+export HOMEBREW_NO_ENV_HINTS=1
+
 # ALIASES & FUNCTIONS
 # Modern directory commands
 alias cd=z
+alias rm=trash
 alias ls="eza -al --group-directories-first --icons"
 alias lst="eza --tree --level=2 --icons"
 
@@ -76,7 +70,11 @@ alias ss="source ~/.zshrc"
 alias ld=lazydocker
 alias lg=lazygit
 alias docker-compose="COMPOSE_BAKE=true docker-compose"
-alias docker compose="docker-compose"
+alias dc="docker compose"
+alias dcu="docker compose up -d"
+alias dcuf="docker compose up -d --force-recreate"
+alias dcd="docker compose down"
+alias dex="docker exec -it"
 alias ff=fastfetch
 
 # Python wrapper
@@ -120,5 +118,47 @@ SDL_IM_MODULE=fcitx
 cursor() {
   nohup /home/"$(whoami)"/Applications/squashfs-root/AppRun -no-sandbox "$@" > /dev/null 2>&1 & disown
 }
+
+# Docker compose down with volumes (with warning)
+dcdv() {
+  echo "WARNING: This will remove containers AND volumes (data will be lost!)"
+  echo "Are you sure you want to continue? [y/N]"
+  read -r response
+  if [[ "$response" =~ ^[Yy]$ ]]; then
+    command docker compose down -v "$@"
+  else
+    echo "Cancelled."
+  fi
+}
+
+# Docker wrapper to intercept dangerous commands
+docker() {
+  local args=("$@")
+  
+  # Check if this is a "compose down -v" command
+  if [[ "$1" == "compose" && "$2" == "down" ]]; then
+    local has_volume_flag=false
+    for arg in "${args[@]:2}"; do
+      if [[ "$arg" == "-v" || "$arg" == "--volumes" ]]; then
+        has_volume_flag=true
+        break
+      fi
+    done
+    
+    if [[ "$has_volume_flag" == true ]]; then
+      echo "WARNING: This will remove containers AND volumes (data will be lost!)"
+      echo "Are you sure you want to continue? [y/N]"
+      read -r response
+      if [[ ! "$response" =~ ^[Yy]$ ]]; then
+        echo "Cancelled."
+        return 1
+      fi
+    fi
+  fi
+  
+  # Execute the actual docker command
+  command docker "$@"
+}
+
 
 TERM=xterm-256color
