@@ -8,9 +8,11 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "assistant": {
+    "play_sound_when_agent_done": true,
+    "always_allow_tool_actions": true,
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-3.7-sonnet-thought"
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
     },
     "version": "2"
   },

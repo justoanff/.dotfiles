@@ -5,3 +5,7 @@
 [user]
 	email = toantran.co.work@gmail.com
 	name = justoanff
+[init]
+	defaultBranch = main
+[credential]
+	helper = store

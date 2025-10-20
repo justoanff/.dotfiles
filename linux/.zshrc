@@ -120,3 +120,5 @@ SDL_IM_MODULE=fcitx
 cursor() {
   nohup /home/"$(whoami)"/Applications/squashfs-root/AppRun -no-sandbox "$@" > /dev/null 2>&1 & disown
 }
+
+TERM=xterm-256color
