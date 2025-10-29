@@ -69,38 +69,18 @@ alias lst="eza --tree --level=2 --icons"
 alias ss="source ~/.zshrc"
 alias ld=lazydocker
 alias lg=lazygit
-alias docker-compose="COMPOSE_BAKE=true docker-compose"
+alias "docker-compose"="docker compose"
 alias dc="docker compose"
 alias dcu="docker compose up -d"
 alias dcuf="docker compose up -d --force-recreate"
 alias dcd="docker compose down"
 alias dex="docker exec -it"
+alias v=nvim
+alias vim=nvim
+alias vi=nvim
+alias py=python3
+alias py=python
 alias ff=fastfetch
-
-# Python wrapper
-py() {
-  if command -v python3 >/dev/null 2>&1; then
-    python3 "$@"
-  elif command -v python >/dev/null 2>&1; then
-    python "$@"
-  else
-    echo "Python is not installed" >&2
-    return 1
-  fi
-}
-
-# Neovim/vim wrapper
-unalias v 2>/dev/null
-v() {
-  if command -v nvim >/dev/null 2>&1; then
-    nvim "$@"
-  elif command -v vim >/dev/null 2>&1; then
-    vim "$@"
-  else
-    echo "Neither nvim nor vim is installed!" >&2
-    return 1
-  fi
-}
 
 # FZF file finder
 vf() {
