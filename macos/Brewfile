@@ -50,8 +50,6 @@ brew "zoxide"
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
-# iOS App Store alternative
-cask "altserver"
 # Allows connection to a computer remotely
 cask "anydesk"
 # Desktop password and login vault
@@ -74,8 +72,6 @@ cask "google-chrome"
 cask "google-drive"
 # Utility to hide menu bar items
 cask "hiddenbar"
-# Open source API development ecosystem
-cask "hoppscotch"
 # Keyboard customiser
 cask "karabiner-elements"
 # File archiver
@@ -86,12 +82,6 @@ cask "kekaexternalhelper"
 cask "maccy"
 # Select text in any app and translate it
 cask "mate-translate"
-# Tool to control external monitor brightness & volume
-cask "monitorcontrol"
-# App to write, plan, collaborate, and get organised
-cask "notion"
-# Calendar for professionals and teams
-cask "notion-calendar"
 # Utility to uninstall apps and remove leftover files from old/uninstalled apps
 cask "pearcleaner"
 # Peer to peer Bitorrent client
@@ -104,11 +94,5 @@ cask "sublime-text"
 cask "termius"
 # Open-source code editor
 cask "visual-studio-code"
-# GPU-accelerated cross-platform terminal emulator and multiplexer
-cask "wezterm"
-# Connect to Windows
-cask "windows-app"
 # Messaging and calling application
 cask "zalo"
-# Multiplayer code editor
-cask "zed"
