@@ -40,6 +40,9 @@ export BAT_THEME="tokyonight_night"
 export bat_style="numbers,changes,header"
 export manpager="sh -c 'col -bx | bat -l man -p'"
 
+# trash-cli configuration
+export PATH="/opt/homebrew/opt/trash-cli/bin:$PATH"
+
 # Key bindings
 bindkey '^T' fzf-file-widget
 bindkey '^R' fzf-history-widget

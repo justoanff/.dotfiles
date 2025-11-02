@@ -1,3 +1,9 @@
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# Automate deployment, configuration, and upgrading
+brew "ansible"
+# Regular expressions library
+brew "oniguruma"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Container runtimes on MacOS (and Linux) with minimal setup
@@ -38,12 +44,12 @@ brew "starship"
 brew "stow"
 # Modern and pretty fancy file manager for the terminal
 brew "superfile"
-# Command-line interface to the freedesktop.org trashcan
-brew "trash-cli"
 # Terminal multiplexer
 brew "tmux"
 # Plugin manager for tmux
 brew "tpm"
+# Command-line interface to the freedesktop.org trashcan
+brew "trash-cli"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # Fish-like fast/unobtrusive autosuggestions for zsh
@@ -52,6 +58,8 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 # Allows connection to a computer remotely
 cask "anydesk"
+# Chromium based browser
+cask "arc"
 # Desktop password and login vault
 cask "bitwarden"
 # Free app that makes your Internet safer
@@ -60,8 +68,6 @@ cask "cloudflare-warp"
 cask "cursor"
 # Voice and text chat software
 cask "discord"
-# Vietnamese keyboard
-cask "evkey"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
@@ -84,15 +90,19 @@ cask "maccy"
 cask "mate-translate"
 # Utility to uninstall apps and remove leftover files from old/uninstalled apps
 cask "pearcleaner"
+# Collaboration platform for API development
+cask "postman"
 # Peer to peer Bitorrent client
 cask "qbittorrent"
+# Music streaming service
+cask "spotify"
 # Open-source media center
 cask "stremio"
 # Text editor for code, markup and prose
 cask "sublime-text"
+# Desktop client for Telegram messenger
+cask "telegram-desktop"
 # SSH client
 cask "termius"
 # Open-source code editor
 cask "visual-studio-code"
-# Messaging and calling application
-cask "zalo"
