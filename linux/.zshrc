@@ -1,6 +1,13 @@
 # Homebrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+# oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+plugins=(git docker docker-compose z)
+
+source $ZSH/oh-my-zsh.sh
+
 # Starship prompt
 eval "$(starship init zsh)"
 
@@ -114,7 +121,7 @@ dcdv() {
 # Docker wrapper to intercept dangerous commands
 docker() {
   local args=("$@")
-  
+
   # Check if this is a "compose down -v" command
   if [[ "$1" == "compose" && "$2" == "down" ]]; then
     local has_volume_flag=false
@@ -124,7 +131,7 @@ docker() {
         break
       fi
     done
-    
+
     if [[ "$has_volume_flag" == true ]]; then
       echo "WARNING: This will remove containers AND volumes (data will be lost!)"
       echo "Are you sure you want to continue? [y/N]"
@@ -135,7 +142,7 @@ docker() {
       fi
     fi
   fi
-  
+
   # Execute the actual docker command
   command docker "$@"
 }
