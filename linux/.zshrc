@@ -67,7 +67,7 @@ export HOMEBREW_NO_ENV_HINTS=1
 
 # ALIASES & FUNCTIONS
 # Modern directory commands
-# alias cd=z
+alias cd=z
 alias rm=trash
 alias ls="eza -al --group-directories-first --icons"
 alias lst="eza --tree --level=2 --icons"
