@@ -3,8 +3,8 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
-plugins=(git docker docker-compose z)
+# ZSH_THEME="robbyrussell"
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -67,7 +67,7 @@ export HOMEBREW_NO_ENV_HINTS=1
 
 # ALIASES & FUNCTIONS
 # Modern directory commands
-alias cd=z
+# alias cd=z
 alias rm=trash
 alias ls="eza -al --group-directories-first --icons"
 alias lst="eza --tree --level=2 --icons"
