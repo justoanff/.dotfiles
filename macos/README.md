@@ -13,6 +13,12 @@ cd ~/.dotfiles/macos
 brew bundle --file Brewfile  # or from repo root: brew bundle -v -d macos
 ```
 
+## Update Brewfile
+```bash
+cd ~/.dotfiles/macos
+brew bundle dump --describe --file=~/Brewfile --force --no-vscode
+```
+
 ## Link configs (GNU Stow)
 ```bash
 cd ~/.dotfiles
