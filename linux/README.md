@@ -24,6 +24,11 @@ eval "$([ -x /home/linuxbrew/.linuxbrew/bin/brew ] && /home/linuxbrew/.linuxbrew
 cd /home/justoanff/Desktop/personal-proj/.dotfiles/linux
 brew bundle --file Brewfile
 ```
+### Update Brewfile
+```bash
+cd ~/.dotfiles/macos
+brew bundle dump --describe --file=~/Brewfile --force --no-vscode
+```
 
 ### Link configs (recommended: GNU Stow)
 ```bash
