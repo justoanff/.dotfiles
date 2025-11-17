@@ -3,5 +3,7 @@
 [push]
 	autoSetupRemote = true
 [user]
-	email = toantran.co.work@gmail.com
 	name = justoanff
+	email = toantran.co.work@gmail.com
+[credential]
+	helper = store

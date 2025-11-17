@@ -1,7 +1,10 @@
 [core]
-	autocrlf = true
+	autocrlf = false
+	eol = lf
 [push]
 	autoSetupRemote = true
 [user]
-	email = toantran.co.work@gmail.com
 	name = justoanff
+	email = toantran.co.work@gmail.com
+[credential]
+	helper = store

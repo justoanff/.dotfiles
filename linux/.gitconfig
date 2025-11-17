@@ -3,9 +3,7 @@
 [push]
 	autoSetupRemote = true
 [user]
-	email = toantran.co.work@gmail.com
 	name = justoanff
-[init]
-	defaultBranch = main
+	email = toantran.co.work@gmail.com
 [credential]
 	helper = store
