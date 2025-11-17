@@ -1,5 +1,11 @@
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# General-purpose scripting language
+brew "php"
+# Dependency Manager for PHP
+brew "composer"
+# Tool for exploring each layer in a docker image
+brew "dive"
 # Modern, maintained replacement for ls
 brew "eza"
 # Like neofetch, but much faster because written mostly in C
@@ -32,12 +38,14 @@ brew "starship"
 brew "stow"
 # Modern and pretty fancy file manager for the terminal
 brew "superfile"
-# Command-line interface to the freedesktop.org trashcan
-brew "trash-cli"
 # Terminal multiplexer
 brew "tmux"
 # Plugin manager for tmux
 brew "tpm"
+# Command-line interface to the freedesktop.org trashcan
+brew "trash-cli"
+# Vulnerability scanner for container images, file systems, and Git repos
+brew "trivy"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # UNIX shell (command interpreter)
