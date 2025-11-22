@@ -5,6 +5,7 @@ node = "lts"
 pnpm = "latest"
 python = "3.10"
 uv = "latest"
+yarn = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = []

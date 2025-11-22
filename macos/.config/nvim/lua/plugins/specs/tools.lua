@@ -55,7 +55,7 @@ return {
     'linux-cultist/venv-selector.nvim',
     dependencies = { 'neovim/nvim-lspconfig', 'nvim-telescope/telescope.nvim', 'mfussenegger/nvim-dap-python' },
     lazy = false,
-    branch = 'regexp',
+    branch = 'main',
     config = function()
       require("plugins.configs.venv-selector")
     end,

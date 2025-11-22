@@ -1,13 +1,12 @@
 # UI
 font-family="Jetbrain Mono Nerd Font"
 font-size=14
-theme=tokyonight-storm
+theme=TokyoNight Storm
 background-opacity=0.6
 background-blur=1
 window-height=1000
 window-width=1000
 # Utilities
-cursor-style=underline
 cursor-style-blink=true
 cursor-click-to-move=true
 mouse-hide-while-typing=true
