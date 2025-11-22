@@ -58,6 +58,8 @@ brew "zoxide"
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
+# AI Coding Agent IDE
+cask "antigravity"
 # Allows connection to a computer remotely
 cask "anydesk"
 # Chromium based browser
@@ -70,6 +72,8 @@ cask "cloudflare-warp"
 cask "cursor"
 # Voice and text chat software
 cask "discord"
+# Flip clock screensaver
+cask "fliqlo"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
@@ -86,6 +90,8 @@ cask "karabiner-elements"
 cask "keka"
 # Helper application for the Keka file archiver
 cask "kekaexternalhelper"
+# Open-source cross-platform alternative to AirDrop
+cask "localsend"
 # Clipboard manager
 cask "maccy"
 # Select text in any app and translate it

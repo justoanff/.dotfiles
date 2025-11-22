@@ -133,3 +133,6 @@ docker() {
   # Execute the actual docker command
   command docker "$@"
 }
+
+# Added by Antigravity
+export PATH="/Users/justoanff/.antigravity/antigravity/bin:$PATH"
