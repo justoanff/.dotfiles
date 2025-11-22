@@ -34,6 +34,8 @@ brew "libmagic"
 brew "mise"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
+brew "openvpn", restart_service: :changed
 # Theme for zsh
 brew "powerlevel10k"
 # Search tool like grep and The Silver Searcher
@@ -88,6 +90,8 @@ cask "kekaexternalhelper"
 cask "maccy"
 # Select text in any app and translate it
 cask "mate-translate"
+# Vietnamese input system
+cask "openkey"
 # Utility to uninstall apps and remove leftover files from old/uninstalled apps
 cask "pearcleaner"
 # Collaboration platform for API development

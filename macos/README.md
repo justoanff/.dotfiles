@@ -5,6 +5,9 @@ Concise setup for macOS using Homebrew, Zsh, Neovim, tmux, and friends.
 ## Prerequisites
 - macOS
 - Homebrew — see `https://brew.sh`
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+- Ohmyzsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 - GNU Stow: `brew install stow`
 
 ## Install packages
